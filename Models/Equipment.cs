@@ -9,7 +9,8 @@ namespace APBD_TASK2.Models
 {
     public abstract class Equipment
     {
-        public Guild Id{get; } = Guid.NewGuid().ToString()[..8];
+        public Guid Id{get; } = Guid.NewGuid();
+        public string id => Id.ToString()[..8];
 
         public string Name { get; set; }
         public EquipmentStatus Status { get; set; }

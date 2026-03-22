@@ -9,11 +9,10 @@ namespace APBD_TASK2.Models
         public int ram{ get; set;}
 
 
-        public Laptop(string n, string p, StringBuilder r) : base(name)
+        public Laptop(string name, string p, int r) : base(name)
         {
             this.processor = p;
             this.ram = r;
-            this.DailyPenaltyRate = 15m; // Laptops have a higher penalty rate
         }
 
         public override string GetDescription()

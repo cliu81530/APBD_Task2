@@ -6,7 +6,7 @@ namespace APBD_TASK2.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public UserType Type { get; set; } 
-        public int MaxRentalLimit { get; set; } => Type switch
+        public int MaxRentalLimit => Type switch
         {
             UserType.Regular => 2,
             UserType.Premium => 5,

@@ -27,7 +27,6 @@ namespace APBD_TASK2.Services
 
         public void ReturnEquipment(Rental rental, DateTime returnDate)
         {
-            var rental = _rentals.FirstOrDefault(r => r.Id == rental.Id);
 
             if (rental == null)
                 throw new ArgumentNullException(nameof(rental));
