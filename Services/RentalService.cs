@@ -25,6 +25,27 @@ namespace APBD_TASK2.Services
             Console.WriteLine($"User {renter.Name} rented {item.Name} on {rentalDate:d} for {durationDays} days.");
         }
 
+        public void ReturnEquipment(Rental rental, DateTime returnDate)
+        {
+            var rental = _rentals.FirstOrDefault(r => r.Id == rental.Id);
 
+            if (rental == null)
+                throw new ArgumentNullException(nameof(rental));
+            if (rental.IsReturned)
+                throw new InvalidOperationException("This rental has already been returned.");
+
+            rental.ReturnItem(returnDate);
+        }
+
+        public void CalculatePenalty(Rental rental)
+        {
+            if (rental == null)
+                throw new ArgumentNullException(nameof(rental));
+            if (!rental.IsReturned)
+                throw new InvalidOperationException("Cannot calculate penalty for an active rental.");
+
+            Console.WriteLine($"Penalty for rental {rental.Id}: {rental.CalculatePenalty()}");
+        }
+    
     }
 }
