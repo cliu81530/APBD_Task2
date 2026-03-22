@@ -8,8 +8,8 @@ namespace APBD_TASK2.Models
         public UserType Type { get; set; } 
         public int MaxRentalLimit => Type switch
         {
-            UserType.Regular => 2,
-            UserType.Premium => 5,
+            UserType.Student => 2,
+            UserType.Employee => 5,
             _ => 0
         };
 
