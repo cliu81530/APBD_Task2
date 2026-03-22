@@ -1,9 +1,9 @@
-namespace APBD_TASK2.Enum
+namespace APBD_TASK2.Interfaces
 {
     public enum UserType
     {
-        Regular,
-        Premium,
-        Admin
+        Student,
+        Employee
+        
     }
 }
