@@ -1,19 +1,23 @@
 namespace APBD_TASK2.Models
 {
-    public class User 
+    public class User
     {
-        public static int IdCounter = 1;
-        public int Id { get; set; }
+        public string Id { get; } = Guid.NewGuid().ToString()[..8];
         public string Name { get; set; }
         public string Email { get; set; }
-        public UserType Type { get; set; }
-  
-        public User(string name,string email, UserType type)
+        public UserType Type { get; set; } 
+        public int MaxRentalLimit { get; set; } => Type switch
         {
-            Id = IdCounter++;
+            UserType.Regular => 2,
+            UserType.Premium => 5,
+            _ => 0
+        };
+
+        public User(string name, string email, UserType type)
+        {
             Name = name;
-            Type = type;
             Email = email;
-        }  
+            Type = type;
+        }
     }
 }
